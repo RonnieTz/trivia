@@ -10,6 +10,7 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
+import { decode } from "html-entities";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState, AppDispatch } from "../redux/store";
@@ -61,7 +62,7 @@ const Questions = () => {
           bgcolor: "lightgrey",
         }}
       >
-        <Typography>{data[activeStep]?.question}</Typography>
+        <Typography>{decode(data[activeStep]?.question)}</Typography>
       </Paper>
       <Box
         sx={{ height: 250, maxWidth: 600, width: "100%", mt: 2 }}
@@ -80,7 +81,7 @@ const Questions = () => {
                 <FormControlLabel
                   value={item}
                   control={<Radio color="success" />}
-                  label={item}
+                  label={decode(item)}
                 />
               </Box>
             ))}
