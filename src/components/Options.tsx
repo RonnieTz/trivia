@@ -19,7 +19,6 @@ const Options = () => {
   };
   return (
     <Box
-      bgcolor={"rgb(0,190,255)"}
       width={"80%"}
       height={"80%"}
       marginTop={5}

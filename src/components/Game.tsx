@@ -8,7 +8,10 @@ const Game = () => {
   const { gameStarted } = useSelector((state: RootState) => state.options);
   return (
     <Box
-      bgcolor="aquamarine"
+      sx={{
+        background:
+          "url('https://static-cse.canva.com/blob/571035/30examplesofpastelcolorsfeaturedimage.364a10c5.avif')",
+      }}
       display={"flex"}
       height={"100vh"}
       width={"100vw"}

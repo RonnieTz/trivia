@@ -12,14 +12,14 @@ const NumQuestions = () => {
     <Box
       width={"80%"}
       marginTop={1}
-      border={"0.1px solid blue"}
+      border={"1px solid black"}
       padding={2}
       borderRadius={2}
     >
       <FormControl fullWidth>
-        <FormLabel>
+        <FormLabel sx={{ fontSize: 25, fontWeight: "600" }}>
           Number of questions:{" "}
-          <Typography display={"inline"} variant="h6">
+          <Typography color={"blueviolet"} display={"inline"} variant="h4">
             {numOfQuestions}
           </Typography>
         </FormLabel>
@@ -32,8 +32,7 @@ const NumQuestions = () => {
           value={numOfQuestions}
           onChange={(e: any) => dispatch(changeNumber(e.target.value))}
           step={1}
-          // valueLabelDisplay="auto"
-          color="secondary"
+          color="primary"
         />
       </FormControl>
     </Box>

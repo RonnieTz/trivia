@@ -61,7 +61,11 @@ const Questions = () => {
     setCorrectAnswers(0);
   };
   return (
-    <Box position={"relative"} sx={{ maxWidth: 600, flexGrow: 1 }}>
+    <Box
+      position={"relative"}
+      sx={{ maxWidth: 600, flexGrow: 1, opacity: 0.8 }}
+      marginTop={5}
+    >
       {activeStep === maxSteps - 1 && answerChecked && (
         <Box
           zIndex={1}
@@ -86,7 +90,6 @@ const Questions = () => {
         </Box>
       )}
       <Paper
-        square
         elevation={0}
         sx={{
           marginTop: 2,
@@ -94,16 +97,20 @@ const Questions = () => {
           alignItems: "center",
           height: 50,
           pl: 2,
-          bgcolor: "lightgrey",
+          bgcolor: "purple",
         }}
       >
-        <Typography>{decode(data[activeStep]?.question)}</Typography>
+        <Typography color={"white"}>
+          {decode(data[activeStep]?.question)}
+        </Typography>
       </Paper>
       <Box
         sx={{ height: 250, maxWidth: 600, width: "100%", mt: 2 }}
-        bgcolor={"lightblue"}
+        bgcolor={"lightgrey"}
         paddingLeft={3}
         boxSizing={"border-box"}
+        borderRadius={2}
+        marginBottom={2}
       >
         <FormControl disabled={answerChecked}>
           <RadioGroup
@@ -158,11 +165,13 @@ const Questions = () => {
       </Box>
       <MobileStepper
         variant="text"
+        sx={{ borderRadius: "0.5rem" }}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
         nextButton={
           <Button
+            variant="contained"
             size="small"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1 || !answerChecked}
@@ -180,7 +189,7 @@ const Questions = () => {
       <Button
         onClick={onNewGame}
         variant="contained"
-        sx={{ marginTop: 5 }}
+        sx={{ marginTop: 5, marginLeft: "40%" }}
         color="secondary"
       >
         New Game
