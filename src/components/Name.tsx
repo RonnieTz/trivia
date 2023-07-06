@@ -9,6 +9,7 @@ const Name = () => {
   return (
     <Box width={"100%"} height={"15%"}>
       <TextField
+        autoFocus
         value={name}
         onChange={(e) => dispatch(setName(e.target.value))}
         sx={{

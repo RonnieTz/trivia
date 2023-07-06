@@ -1,4 +1,4 @@
-import { Box, Tooltip, Button, Typography } from "@mui/material";
+import { Box, Tooltip, Button, Typography, IconButton } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { joinRoom } from "../redux/optionSlice";

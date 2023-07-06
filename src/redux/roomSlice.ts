@@ -39,9 +39,13 @@ const initialState: {
 export const roomSlice = createSlice({
   name: "room",
   initialState,
-  reducers: {},
+  reducers: {
+    addRoom: (state, action) => {
+      state.roomList.push(action.payload);
+    },
+  },
 });
 
-export const {} = roomSlice.actions;
+export const { addRoom } = roomSlice.actions;
 
 export default roomSlice.reducer;
