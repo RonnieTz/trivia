@@ -5,8 +5,11 @@ import {
   Avatar,
   ListItemText,
 } from "@mui/material";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const PlayersList = () => {
+  const { joinedRoom } = useSelector((state: RootState) => state.room);
   return (
     <List
       sx={{
@@ -16,18 +19,17 @@ const PlayersList = () => {
         gridTemplateColumns: { sm: " 1fr 1fr", md: "1fr 1fr 1fr", xs: "1fr" },
       }}
     >
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar />
-        </ListItemAvatar>
-        <ListItemText primary={"ronis.tzol"} secondary={"READY"} />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar />
-        </ListItemAvatar>
-        <ListItemText primary={"ronis.tzol"} secondary={"waiting..."} />
-      </ListItem>
+      {joinedRoom.users.map((user) => (
+        <ListItem key={user.id}>
+          <ListItemAvatar>
+            <Avatar src={user.picture} />
+          </ListItemAvatar>
+          <ListItemText
+            primary={user.name}
+            secondary={user.startPressed ? "READY" : "waiting"}
+          ></ListItemText>
+        </ListItem>
+      ))}
     </List>
   );
 };
