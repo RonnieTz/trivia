@@ -1,24 +1,23 @@
 import { Box } from "@mui/material";
-import Options from "./Options";
+import Lobby from "./Lobby";
 import { useSelector } from "react-redux";
-import type { RootState } from "../redux/store";
-import Questions from "./Questions";
+import { RootState } from "../redux/store";
+import Room from "./Room";
 
 const Game = () => {
-  const { gameStarted } = useSelector((state: RootState) => state.options);
+  const { lobby, room } = useSelector((state: RootState) => state.option);
   return (
     <Box
+      position="fixed"
       sx={{
-        background:
-          "url('https://static-cse.canva.com/blob/571035/30examplesofpastelcolorsfeaturedimage.364a10c5.avif')",
+        boxSizing: "border-box",
+        backgroundColor: "lightgrey",
+        width: "100%",
+        height: "100%",
       }}
-      display={"flex"}
-      height={"100vh"}
-      width={"100vw"}
-      justifyContent={"center"}
     >
-      {!gameStarted && <Options />}
-      {gameStarted && <Questions />}
+      {lobby && !room && <Lobby />}
+      {room && <Room />}
     </Box>
   );
 };
